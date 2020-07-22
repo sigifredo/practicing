@@ -1,1 +1,6 @@
-<p>admin works!</p>
+
+<div class="form">
+    <input #eng type="text" placeholder="English">
+    <input #spa type="text" placeholder="Spanish">
+    <button (click)="save(eng.value, spa.value)">Guardar</button>
+</div>
