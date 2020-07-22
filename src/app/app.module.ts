@@ -5,6 +5,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { AdminComponent } from './components/admin/admin.component';
 import { IndexComponent } from './components/index/index.component';
+import { WordService } from './services/word.service';
 
 @NgModule({
     declarations: [
@@ -16,7 +17,7 @@ import { IndexComponent } from './components/index/index.component';
         BrowserModule,
         AppRoutingModule
     ],
-    providers: [],
+    providers: [WordService],
     bootstrap: [AppComponent]
 })
 export class AppModule { }
