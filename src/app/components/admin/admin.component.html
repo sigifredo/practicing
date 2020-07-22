@@ -1,6 +1,19 @@
 
-<div class="form">
-    <input #eng type="text" placeholder="English">
-    <input #spa type="text" placeholder="Spanish">
-    <button (click)="save(eng.value, spa.value)">Guardar</button>
-</div>
+<table>
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>English</th>
+            <th>Spanish</th>
+            <th>Score</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let word of words">
+            <td>{{word.id}}</td>
+            <td>{{word.english}}</td>
+            <td>{{word.spanish}}</td>
+            <td>{{word.score}}</td>
+        </tr>
+    </tbody>
+</table>

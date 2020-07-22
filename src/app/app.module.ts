@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { AdminComponent } from './components/admin/admin.component';
 import { IndexComponent } from './components/index/index.component';
 import { WordService } from './services/word.service';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
     declarations: [
@@ -15,7 +16,8 @@ import { WordService } from './services/word.service';
     ],
     imports: [
         BrowserModule,
-        AppRoutingModule
+        AppRoutingModule,
+        HttpClientModule
     ],
     providers: [WordService],
     bootstrap: [AppComponent]

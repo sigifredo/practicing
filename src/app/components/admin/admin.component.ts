@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { WordModel } from 'src/app/models/word.model';
+import { WordService } from 'src/app/services/word.service';
 
 @Component({
     selector: 'app-admin',
@@ -8,9 +9,14 @@ import { WordModel } from 'src/app/models/word.model';
 })
 export class AdminComponent implements OnInit {
 
-    constructor() { }
+    words:WordModel[] = [];
+
+    constructor(private wordsService: WordService) { }
 
     ngOnInit(): void {
+        this.wordsService.getAll().subscribe(data => {
+            this.words = data;
+        });
     }
 
     save(english:string, spanish:string):void {

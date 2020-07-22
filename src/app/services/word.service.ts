@@ -13,12 +13,12 @@ const httpOptions = {
     providedIn: 'root'
 })
 export class WordService {
-    private apiUrl:string = 'http://localhost:8080/api/';
+    private apiUrl:string = 'http://localhost/lang/';
 
     constructor(private http: HttpClient) { }
 
     getAll(): Observable<any> {
-        return this.http.get(this.apiUrl + 'word');
+        return this.http.get(this.apiUrl + 'list.php');
     }
 
     add(word: WordModel) {
