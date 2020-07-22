@@ -1,7 +1,13 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { WordModel } from '../models/word.model';
+
+const httpOptions = {
+    headers: new HttpHeaders({
+        'Content-Type': 'application/json'
+    })
+};
 
 @Injectable({
     providedIn: 'root'
@@ -13,6 +19,24 @@ export class WordService {
 
     getAll(): Observable<any> {
         return this.http.get(this.apiUrl + 'word');
+    }
+
+    add(word: WordModel) {
+        return this.http.post(
+            this.apiUrl + 'add', word, httpOptions
+        )
+        .toPromise()
+        .then(this.handleSuccess)
+        .catch(this.handleError);
+    }
+
+    delete(id): Promise<any> {
+        return this.http.delete(
+            this.apiUrl + 'delete/' + id
+        )
+        .toPromise()
+        .then(this.handleSuccess)
+        .catch(this.handleError);
     }
 
     edit(word: WordModel): Promise<any> {
