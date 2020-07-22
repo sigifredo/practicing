@@ -30,7 +30,7 @@ export class WordService {
         .catch(this.handleError);
     }
 
-    delete(id): Promise<any> {
+    delete(id:number): Promise<any> {
         return this.http.delete(
             this.apiUrl + 'delete/' + id
         )
