@@ -1,7 +1,10 @@
 <div class="form">
-    <input #eng type="text" placeholder="English">
-    <input #spa type="text" placeholder="Spanish">
+    <input #eng type="text" placeholder="English" [(ngModel)]="form.eng" (keydown.enter)="save(eng.value, spa.value)">
+    <input #spa type="text" placeholder="Spanish" [(ngModel)]="form.spa" (keydown.enter)="save(eng.value, spa.value)">
     <button (click)="save(eng.value, spa.value)">Guadar</button>
+</div>
+<div class="error" *ngIf="errorMessage != ''">
+    <span>{{errorMessage}}</span>
 </div>
 <table>
     <thead>

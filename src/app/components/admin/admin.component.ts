@@ -10,13 +10,13 @@ import { WordService } from 'src/app/services/word.service';
 export class AdminComponent implements OnInit {
 
     words:WordModel[] = [];
+    errorMessage:string = '';
+    form = { eng: '', spa: ''};
 
     constructor(private wordsService: WordService) { }
 
     ngOnInit(): void {
-        this.wordsService.getAll().subscribe(data => {
-            this.words = data;
-        });
+        this.requestWords();
     }
 
     save(english:string, spanish:string):void {
@@ -25,6 +25,22 @@ export class AdminComponent implements OnInit {
         word.english = english.toLowerCase();
         word.spanish = spanish.toLowerCase();
 
-        this.wordsService.add(word);
+        this.wordsService.add(word)
+        .toPromise()
+        .then(data => {
+            this.requestWords();
+            this.form.eng = '';
+            this.form.spa = '';
+        })
+        .catch(data => {
+            console.log(data);
+            this.errorMessage = 'No se ha podido guardar la palabra.';
+        });
+    }
+
+    requestWords():void {
+        this.wordsService.getAll().subscribe(data => {
+            this.words = data;
+        });
     }
 }

@@ -22,12 +22,7 @@ export class WordService {
     }
 
     add(word: WordModel) {
-        return this.http.post(
-            this.apiUrl + 'add.php', word, httpOptions
-        )
-        .toPromise()
-        .then(this.handleSuccess)
-        .catch(this.handleError);
+        return this.http.post(this.apiUrl + 'add.php', word, httpOptions);
     }
 
     delete(id:number): Promise<any> {
