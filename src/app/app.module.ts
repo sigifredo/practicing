@@ -7,12 +7,14 @@ import { AdminComponent } from './components/admin/admin.component';
 import { IndexComponent } from './components/index/index.component';
 import { WordService } from './services/word.service';
 import { HttpClientModule } from '@angular/common/http';
+import { PracticeComponent } from './components/practice/practice.component';
 
 @NgModule({
     declarations: [
         AppComponent,
         AdminComponent,
-        IndexComponent
+        IndexComponent,
+        PracticeComponent
     ],
     imports: [
         BrowserModule,

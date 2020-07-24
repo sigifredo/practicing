@@ -25,6 +25,6 @@ export class AdminComponent implements OnInit {
         word.english = english.toLowerCase();
         word.spanish = spanish.toLowerCase();
 
-        console.log(word);
+        this.wordsService.add(word);
     }
 }

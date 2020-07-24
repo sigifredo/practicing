@@ -23,7 +23,7 @@ export class WordService {
 
     add(word: WordModel) {
         return this.http.post(
-            this.apiUrl + 'add', word, httpOptions
+            this.apiUrl + 'add.php', word, httpOptions
         )
         .toPromise()
         .then(this.handleSuccess)
