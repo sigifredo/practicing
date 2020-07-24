@@ -1,1 +1,5 @@
-<p>practice works!</p>
+<div class="form">
+    <span class="question">{{option.question}}</span>
+    <input #response [(ngModel)]="formResponse" type="text" placeholder="Respuesta" (keydown.enter)="checkAnswers(response.value)">
+    <span class="{{message.class}}">{{message.value}}</span>
+</div>

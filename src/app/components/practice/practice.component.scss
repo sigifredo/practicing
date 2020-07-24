@@ -1,0 +1,32 @@
+
+$succeedColor: #28a745;
+$errorColor: #d73038;
+
+.form {
+    align-items: center;
+    flex-direction: column;
+    display: flex;
+    min-width: 280px;
+    width: 50%;
+
+    input {
+        margin: 1em 0;
+        padding: 0.3em;
+    }
+    .error {
+        color: $errorColor;
+    }
+    .question {
+        &::first-letter {
+            text-transform: uppercase;
+        }
+    }
+    .message {
+        color: $succeedColor;
+    }
+}
+@media screen and (max-width: 800px) {
+    .form {
+        width: 80%;
+    }
+}
