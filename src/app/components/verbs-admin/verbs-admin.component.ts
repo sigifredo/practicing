@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { VerbModel } from '../../models/verb.model';
+import { VerbsService } from 'src/app/services/verbs.service';
 
 @Component({
     selector: 'app-verbs-admin',
@@ -7,9 +9,41 @@ import { Component, OnInit } from '@angular/core';
 })
 export class VerbsAdminComponent implements OnInit {
 
-    constructor() { }
+    verbs:VerbModel[] = [];
+    errorMessage:string = '';
+    form = { present: '', past: '', pastparticiple: ''};
+
+    constructor(private verbsService: VerbsService) { }
 
     ngOnInit(): void {
+        this.requestWords();
+    }
+
+    save(present:string, past:string, pastparticiple:string):void {
+        let verb:VerbModel = new VerbModel();
+
+        verb.present = present.toLowerCase();
+        verb.past = past.toLowerCase();
+        verb.pastparticiple = pastparticiple.toLowerCase();
+
+        this.verbsService.add(verb)
+        .toPromise()
+        .then(data => {
+            this.requestWords();
+            this.form.present = '';
+            this.form.past = '';
+            this.form.pastparticiple = '';
+        })
+        .catch(data => {
+            console.log(data);
+            this.errorMessage = 'No se ha podido guardar la palabra.';
+        });
+    }
+
+    requestWords():void {
+        this.verbsService.getAll().subscribe(data => {
+            this.verbs = data;
+        });
     }
 
 }

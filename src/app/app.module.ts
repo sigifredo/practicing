@@ -6,6 +6,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { WordsAdminComponent } from './components/words-admin/words-admin.component';
 import { IndexComponent } from './components/index/index.component';
+import { VerbsService } from './services/verbs.service';
 import { WordsService } from './services/words.service';
 import { HttpClientModule } from '@angular/common/http';
 import { WordsPracticeComponent } from './components/words-practice/words-practice.component';
@@ -27,7 +28,7 @@ import { VerbsPracticeComponent } from './components/verbs-practice/verbs-practi
         FormsModule,
         HttpClientModule
     ],
-    providers: [WordsService],
+    providers: [VerbsService, WordsService],
     bootstrap: [AppComponent]
 })
 export class AppModule { }

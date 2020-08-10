@@ -1,1 +1,30 @@
-<p>verbs-admin works!</p>
+<div class="form">
+    <input #pres type="text" placeholder="Present" [(ngModel)]="form.present" (keydown.enter)="save(pres.value, past.value, pastp.value)">
+    <input #past type="text" placeholder="Past" [(ngModel)]="form.past" (keydown.enter)="save(pres.value, past.value, pastp.value)">
+    <input #pastp type="text" placeholder="Past participle" [(ngModel)]="form.pastparticiple" (keydown.enter)="save(pres.value, past.value, pastp.value)">
+    <button (click)="save(pres.value, past.value, pastp.value)">Guadar</button>
+</div>
+<div class="error" *ngIf="errorMessage != ''">
+    <span>{{errorMessage}}</span>
+</div>
+<table>
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Present</th>
+            <th>Past</th>
+            <th>Past participle</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let word of verbs">
+            <td>{{verb.id}}</td>
+            <td>{{verb.present}}</td>
+            <td>{{verb.past}}</td>
+            <td>{{verb.pastparticiple}}</td>
+        </tr>
+    </tbody>
+</table>
+<div class="hide-url">
+    <a href="https://docs.google.com/spreadsheets/d/1zCiDc-c-WoUgOwqOMsJt3GN8evmhojxp5ccY-vAnio0/edit#gid=0" target="_blank">Google sheet form</a>
+</div>

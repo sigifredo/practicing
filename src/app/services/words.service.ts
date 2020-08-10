@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { WordModel } from '../models/word.model';
-import { BaseService } from './base-service.service';
+import { BaseService } from './base.service';
 import { HttpClient } from '@angular/common/http';
 
 @Injectable({

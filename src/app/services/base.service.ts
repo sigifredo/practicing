@@ -16,15 +16,15 @@ export class BaseService<Model> {
         this._http = http;
     }
 
-    getAll(): Observable<any> {
+    public getAll(): Observable<any> {
         return this._http.get(this._apiUrl + 'list.php');
     }
 
-    add(data: Model) {
+    public add(data: Model) {
         return this._http.post(this._apiUrl + 'add.php', data, httpOptions);
     }
 
-    delete(id:number): Promise<any> {
+    public delete(id:number): Promise<any> {
         return this._http.delete(
             this._apiUrl + 'delete/' + id
         )
@@ -33,7 +33,7 @@ export class BaseService<Model> {
         .catch(this.handleError);
     }
 
-    edit(data: Model): Promise<any> {
+    public edit(data: Model): Promise<any> {
         return this._http.put(
             this._apiUrl + 'update', data
         )
