@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ElementRef, ViewChild } from '@angular/core';
 import { VerbModel } from '../../models/verb.model';
 import { VerbsService } from 'src/app/services/verbs.service';
 
@@ -12,6 +12,8 @@ export class VerbsAdminComponent implements OnInit {
     verbs:VerbModel[] = [];
     errorMessage:string = '';
     form = { present: '', past: '', pastparticiple: ''};
+
+    @ViewChild('pres') firstInput: ElementRef;
 
     constructor(private verbsService: VerbsService) { }
 
@@ -33,6 +35,7 @@ export class VerbsAdminComponent implements OnInit {
             this.form.present = '';
             this.form.past = '';
             this.form.pastparticiple = '';
+            this.firstInput.nativeElement.focus();
         })
         .catch(data => {
             console.log(data);

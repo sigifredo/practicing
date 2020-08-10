@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { VerbsService } from 'src/app/services/verbs.service';
 import { VerbModel } from '../../models/verb.model';
 
@@ -13,6 +13,8 @@ export class VerbsPracticeComponent implements OnInit {
     message = { class: 'message', value: '' };
     option = { present: '', past: '', pastparticiple: '' };
     formResponse = { past: '', pastparticiple: '' };
+
+    @ViewChild('past') firstInput: ElementRef;
 
     constructor(private verbsService: VerbsService) { }
 
@@ -35,6 +37,7 @@ export class VerbsPracticeComponent implements OnInit {
         }
         this.formResponse.past = '';
         this.formResponse.pastparticiple = '';
+        this.firstInput.nativeElement.focus();
     }
 
     getNextQuestion():void {
