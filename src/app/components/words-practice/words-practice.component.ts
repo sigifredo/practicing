@@ -1,20 +1,20 @@
 import { Component, OnInit } from '@angular/core';
-import { WordService } from 'src/app/services/word.service';
+import { WordsService } from 'src/app/services/words.service';
 import { WordModel } from 'src/app/models/word.model';
 
 @Component({
-    selector: 'app-practice',
-    templateUrl: './practice.component.html',
-    styleUrls: ['./practice.component.scss']
+    selector: 'app-words-practice',
+    templateUrl: './words-practice.component.html',
+    styleUrls: ['./words-practice.component.scss']
 })
-export class PracticeComponent implements OnInit {
+export class WordsPracticeComponent implements OnInit {
 
     private words:WordModel[] = [];
     message = { class: 'message', value: '' };
     option = { question: '', answer: '' };
     formResponse:string = '';
 
-    constructor(private wordsService: WordService) { }
+    constructor(private wordsService: WordsService) { }
 
     ngOnInit(): void {
         this.wordsService.getAll().subscribe(data => {

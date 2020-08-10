@@ -1,19 +1,19 @@
 import { Component, OnInit } from '@angular/core';
 import { WordModel } from 'src/app/models/word.model';
-import { WordService } from 'src/app/services/word.service';
+import { WordsService } from 'src/app/services/words.service';
 
 @Component({
-    selector: 'app-admin',
-    templateUrl: './admin.component.html',
-    styleUrls: ['./admin.component.scss']
+    selector: 'app-words-admin',
+    templateUrl: './words-admin.component.html',
+    styleUrls: ['./words-admin.component.scss']
 })
-export class AdminComponent implements OnInit {
+export class WordsAdminComponent implements OnInit {
 
     words:WordModel[] = [];
     errorMessage:string = '';
     form = { eng: '', spa: ''};
 
-    constructor(private wordsService: WordService) { }
+    constructor(private wordsService: WordsService) { }
 
     ngOnInit(): void {
         this.requestWords();

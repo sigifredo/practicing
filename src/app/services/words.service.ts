@@ -12,7 +12,7 @@ const httpOptions = {
 @Injectable({
     providedIn: 'root'
 })
-export class WordService {
+export class WordsService {
     private apiUrl:string = 'http://localhost/lang/back/words/';
 
     constructor(private http: HttpClient) { }

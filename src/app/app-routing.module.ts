@@ -1,15 +1,18 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { AdminComponent } from './components/admin/admin.component';
-import { AppComponent } from './app.component';
+import { WordsAdminComponent } from './components/words-admin/words-admin.component';
 import { IndexComponent } from './components/index/index.component';
-import { PracticeComponent } from './components/practice/practice.component';
+import { WordsPracticeComponent } from './components/words-practice/words-practice.component';
+import { VerbsPracticeComponent } from './components/verbs-practice/verbs-practice.component';
+import { VerbsAdminComponent } from './components/verbs-admin/verbs-admin.component';
 
 const routes: Routes = [
     // { path: '', redirectTo: '1', pathMatch: 'full' },
     { path: '', component: IndexComponent, pathMatch: 'full' },
-    { path: 'admin', component: AdminComponent },
-    { path: 'practice', component: PracticeComponent }
+    { path: 'verbs/admin', component: VerbsAdminComponent },
+    { path: 'verbs/practice', component: VerbsPracticeComponent },
+    { path: 'words/admin', component: WordsAdminComponent },
+    { path: 'words/practice', component: WordsPracticeComponent }
 ];
 
 @NgModule({
