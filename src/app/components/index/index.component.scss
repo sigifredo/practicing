@@ -1,28 +1,39 @@
 @import '../../../styles/colors.scss';
 
-.buttons {
-    align-items: center;
-    display: flex;
-    justify-content: center;
-    margin: 0 auto;
-    padding: 3em 0;
-    width: 100%;
+section {
+    padding: 2em;
 
-    a {
-        background-color: $generalBg;
-        border: 2px solid $primaryColor;
-        border-radius: 0.7em;
-        color: $primaryColor;
-        font-size: 1.5em;
-        margin: 1em 0.5em;
-        padding: 1em;
+    &:not(:last-child) {
+        border-bottom: 1px solid #dee2e6;
+    }
+
+    h2 {
+        color: $primaryText;
         text-align: center;
-        text-decoration: none;
-        transition: background-color 0.5s ease, color 0.5s ease;
+    }
 
-        &:hover {
-            background-color: $primaryColor;
-            color: $textColor;
+    .buttons {
+        align-items: center;
+        display: flex;
+        justify-content: center;
+        margin: 0 auto;
+        width: 100%;
+
+        a {
+            background-color: $generalBg;
+            border: 2px solid $primaryColor;
+            border-radius: 0.7em;
+            color: $primaryColor;
+            margin: 1em 0.5em;
+            padding: 1em;
+            text-align: center;
+            text-decoration: none;
+            transition: background-color 0.5s ease, color 0.5s ease;
+
+            &:hover {
+                background-color: $primaryColor;
+                color: $textColor;
+            }
         }
     }
 }

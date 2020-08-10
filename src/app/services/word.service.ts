@@ -13,7 +13,7 @@ const httpOptions = {
     providedIn: 'root'
 })
 export class WordService {
-    private apiUrl:string = 'http://localhost/lang/back/';
+    private apiUrl:string = 'http://localhost/lang/back/words/';
 
     constructor(private http: HttpClient) { }
 
@@ -53,4 +53,3 @@ export class WordService {
         return Promise.reject(errorResponse);
     }
 }
- 

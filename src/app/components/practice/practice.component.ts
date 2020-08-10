@@ -10,7 +10,7 @@ import { WordModel } from 'src/app/models/word.model';
 export class PracticeComponent implements OnInit {
 
     private words:WordModel[] = [];
-    message = { class: 'message', value: 'test' };
+    message = { class: 'message', value: '' };
     option = { question: '', answer: '' };
     formResponse:string = '';
 
@@ -24,7 +24,7 @@ export class PracticeComponent implements OnInit {
     }
 
     checkAnswers(response:string) {
-        if (response == this.option.answer) {
+        if (response.toLowerCase() == this.option.answer) {
             this.message.class = 'message';
             this.message.value = 'Respuesta correcta';
             this.getNextQuestion();
