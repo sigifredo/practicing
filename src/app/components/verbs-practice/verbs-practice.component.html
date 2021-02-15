@@ -1,6 +1,6 @@
 <div class="form">
     <span class="question">{{option.present}}</span>
-    <input #past [(ngModel)]="formResponse.past" type="text" placeholder="Past" (keydown.enter)="checkAnswers(past.value, pastp.value)">
+    <input #past [(ngModel)]="formResponse.past" type="text" placeholder="Past" (keydown.enter)="checkAnswers(past.value, pastparticiple.value)">
     <input #pastparticiple [(ngModel)]="formResponse.pastparticiple" type="text" placeholder="Past participle" (keydown.enter)="checkAnswers(past.value, pastparticiple.value)">
     <span class="{{message.class}}">{{message.value}}</span>
 </div>
